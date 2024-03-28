@@ -17,6 +17,12 @@ const AllocationForm = (props) => {
                 return;
             }
 
+            // if(cost > remaining) {
+            //     alert("The value cannot exceed remaining funds  £"+remaining);
+            //     setCost("");
+            //     return;
+            // }
+
         const expense = {
             name: name,
             cost: parseInt(cost),
@@ -58,8 +64,21 @@ const AllocationForm = (props) => {
                   <select className="custom-select" id="inputGroupSelect02" onChange={(event) => setAction(event.target.value)}>
                         <option defaultValue value="Add" name="Add">Add</option>
                 <option value="Reduce" name="Reduce">Reduce</option>
+                
                   </select>
 
+                  <div className="input-group-prepend" style={{ marginLeft: '2rem' }}>
+                <label className="input-group-text" htmlFor="inputGroupSelect02">Currency</label>
+                  </div>
+                  <select className="custom-select" id="inputGroupSelect02" onChange={(event) => setAction(event.target.value)}>
+                        <option defaultValue value="£ Pound" name="£ Pound">£ Pound</option>
+                        <option value="$ Dollar" name="$ Dollar">$ Dollar</option>
+                        <option value="€ Euro" name="€ Euro">€ Euro</option>
+                        <option value="₹ Ruppee" name="₹ Ruppee">₹ Ruppee</option>
+                
+                  </select>
+                  
+                  <span>&emsp;&emsp;&emsp;&emsp;£</span>
                     <input
                         required='required'
                         type='number'
@@ -68,6 +87,7 @@ const AllocationForm = (props) => {
                         style={{ marginLeft: '2rem' , size: 10}}
                         onChange={(event) => setCost(event.target.value)}>
                         </input>
+                        
 
                     <button className="btn btn-primary" onClick={submitEvent} style={{ marginLeft: '2rem' }}>
                         Save
